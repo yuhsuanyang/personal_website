@@ -25,3 +25,16 @@
 .icon-button:focus-visible{  /* when using tab to select*/
     outline: 4px auto -webkit-focus-ring-color;
 }
+
+.subtitle{
+    margin: 2em 0;
+}
+.section{
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+
+}
+svg {
+   vertical-align: bottom;
+}

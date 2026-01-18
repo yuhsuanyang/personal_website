@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
+import jsonData from "../public/data.json";
 import ContactSection from "./components/ContactSection";
+import EducationSection from "./components/EducationSection";
 
 function App() {
   // const [count, setCount] = useState(0);
-
+  const [data] = useState(jsonData);
   return (
     <>
       <ContactSection />
+      <EducationSection data={data["Education"]} />
       {/*<div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
