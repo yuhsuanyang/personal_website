@@ -12,6 +12,7 @@ import "./style.css";
 function ContactSection() {
   const introText =
     "Professional in data science and finance, dedicated to boost the financial industry with technology.";
+  const emailAddress = "sb0953330882@gmail.com";
   const [text, setText] = useState("");
   const [showEmailAddress, setShowEmailAddress] = useState(false);
   const hasRun = useRef(false);
@@ -73,13 +74,20 @@ function ContactSection() {
           <div
             className="flex-box"
             style={{
+              gap: "0.25em",
+              margin: "0",
               opacity: showEmailAddress ? 1 : 0,
               transition: "all .2s",
-              gap: "0.25em",
             }}
           >
-            <p style={{ margin: 0 }}>sb0953330882@gmail.com</p>
-            <button aria-label="Copy" className="icon-button">
+            <p style={{ margin: 0 }}>{emailAddress}</p>
+            <button
+              aria-label="Copy"
+              className="icon-button"
+              onClick={() => {
+                navigator.clipboard.writeText(emailAddress);
+              }}
+            >
               <IoCopyOutline size="1em" />
             </button>
           </div>

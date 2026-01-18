@@ -30,7 +30,7 @@ describe("Links test", () => {
   });
   it("Copy Email Address", async () => {
     const copiedTest = vi.fn(); // record function call
-    Object.assign(navigator, { clipboard: { copiedTest } });
+    Object.assign(navigator, { clipboard: { writeText: copiedTest } });
     const emailButton = screen.getByRole("button", { name: "Email" });
     await userEvent.click(emailButton);
 
