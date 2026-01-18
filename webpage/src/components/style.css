@@ -5,3 +5,23 @@
     margin: 1em 0;
 }
 
+.icon-button{
+    align-items: center;
+    display: inline-flex;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.icon-button:hover{
+    background-color: transparent;
+    color: #535bf2;
+}
+
+.icon-button:focus{
+    outline: none;
+}
+
+.icon-button:focus-visible{  /* when using tab to select*/
+    outline: 4px auto -webkit-focus-ring-color;
+}
