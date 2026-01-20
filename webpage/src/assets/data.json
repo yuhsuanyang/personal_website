@@ -1,0 +1,70 @@
+{
+    "Work Experience": [
+        {
+            "Company": "FTSE Russell, An LSEG Business",
+            "Location": "Taipei, Taiwan",
+            "Position": "Senior Process Automation Specialist",
+            "Period": "July 2025 - now",
+            "Content": [
+                "Develop a module-based automation tool for the index review process, which had been done manually. This system enables index reviewers to design the index construction process by a drag-and-drop UI.",
+                "Propose a general method to automate the rebalancing process, including constituent weights adjustments and reallocation. This optimization reduces at least 4 times of the code base complexity.",
+                "Maintain documentation and guidelines for users to understand the modules functionality."
+            ]
+        },
+        {
+            "Company": "RV Capital Management",
+            "Location": "Singapore",
+            "Position": "Intern Analyst",
+            "Period": "Jan. 2025 - March 2025",
+            "Content": [
+                "Automate financial document parsing task for the risk team by applying few-shot learning on LLM which reaches 90% accuracy and build Power BI dashboards on behalf of error analysis.",
+                "Design a RAG-based lightweight chatbot that works with long documents by efficiently summarizing them and constructing vector databases. Improve the accuracy in the retrieval stage with a two-staged retrieval process.",
+                "Develop a web scraping tool to automatically download trading reports received from financial institutions. Database management is implemented by ORM."
+            ]
+        },
+        {
+            "Company": "Sinopac Holdings",
+            "Location": "Taipei, Taiwan",
+            "Position": "Assistant Manager, AI engineer in Digital Technology Division (DTD)",
+            "Period": "Sept. 2020 - July 2024",
+            "Content": [
+                "Reinforcement learning in asset allocation: Aimed to maintain a portfolio of stocks that can beat the TWSE market based on their profile and transaction behaviors.",
+                "Machine learning pipelines for customer analysis: Predicted the preferences of customers in certain financial products or campaigns based on their profile and transaction behaviors.",
+                "Workload Orchestration: Optimized the utilization of computational resources in the development environment by k8s and docker.",
+                "Risk and control self-assessment automation: Developed a pipeline to summarize the assessment advice from the risk control department by LLM, clustering and classification.",
+                "Dojo for rapid AI demonstration: Designed a platform for displaying the GenAI and LLM applications developed by DTD. Responsible for front-end development."
+            ]
+        }
+    ],
+    "Technical Skills": [
+        "C++",
+        "Python",
+        "SQL",
+        "Golang",
+        "Java",
+        "Quantitative methods in risk and analysis",
+        "scikit-learn",
+        "Pytorch",
+        "LangChain",
+        "GCP",
+        "AWS",
+        "MSSQL",
+        "PostgreSQL",
+        "Svelte",
+        "React",
+        "Django",
+        "Spring Boot",
+        "Mandarin(native)",
+        "English(IELTS 7)"
+    ],
+    "Certificates": [
+        {
+            "Name": "Bloomberg for Education",
+            "Period": "Oct. 2024~April 2025",
+            "Content": [
+                "Bloomberg Financial Fundamental: Gain knowledge of financial markets, risk and reward and portfolio management.",
+                "Bloomberg Market Concepts: Delve into concepts of financial instruments such as commodities, fixed income, equities and options."
+            ]
+        }
+    ]
+}

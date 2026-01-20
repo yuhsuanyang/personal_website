@@ -7,7 +7,7 @@ function EducationSection({ data }) {
       {Array.from(data).map((item) => (
         <div className="subtitle">
           <b>{item["School"]}</b>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="subtitle-flex-box">
             <p>{item["Location"]}</p>
             <p>{item["Period"]}</p>
           </div>

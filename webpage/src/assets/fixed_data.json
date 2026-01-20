@@ -1,0 +1,22 @@
+{
+    "Education": [
+        {
+            "School": "Nanyang Technological University",
+            "Location": "Singapore",
+            "Department": "Master of Science in Financial Technology (Intelligent Process Automation Specialisation)",
+            "Period": "Aug. 2024 - June 2025"
+        },
+        {
+            "School": "National Chiao Tung University",
+            "Location": "Hsinchu, Taiwan",
+            "Department": "Master\u2019s degree in Institute of Data Science and Engineering",
+            "Period": "Sept. 2018 - June 2020"
+        },
+        {
+            "School": "National Cheng Kung University",
+            "Location": "Tainan, Taiwan",
+            "Department": "International Bachelor Degree Program on Energy with Mathematics as Minor",
+            "Period": "Sept. 2014 - June 2018"
+        }
+    ]
+}

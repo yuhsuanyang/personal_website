@@ -34,7 +34,7 @@ function ContactSection() {
   }, []);
 
   return (
-    <div style={{ width: "100em" }}>
+    <div style={{ padding: "20%" }}>
       <h1>Yu-Hsuan (Darcy) Yang</h1>
       <h2 className="read-the-docs">
         Software Engineer in a Financial Institute
