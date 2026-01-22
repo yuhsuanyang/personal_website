@@ -16,6 +16,12 @@ function ContactSection() {
   const [text, setText] = useState("");
   const [showEmailAddress, setShowEmailAddress] = useState(false);
   const hasRun = useRef(false);
+  const w = `${introText.length}ch`;
+  const style = {
+    padding: "15%",
+    height: "100%",
+    width: w,
+  };
 
   useEffect(() => {
     if (hasRun.current) {
@@ -34,7 +40,7 @@ function ContactSection() {
   }, []);
 
   return (
-    <div style={{ padding: "20%" }}>
+    <div style={style}>
       <h1>Yu-Hsuan (Darcy) Yang</h1>
       <h2 className="read-the-docs">
         Software Engineer in a Financial Institute
