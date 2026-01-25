@@ -6,10 +6,12 @@ import { IoArrowDown } from "react-icons/io5";
 import "./App.css";
 import jsonData1 from "./assets/data.json";
 import jsonData2 from "./assets/fixed_data.json";
+import jsonData3 from "./assets/skill_categories.json";
 import Arrow from "./components/Arrow";
 import ContactSection from "./components/ContactSection";
 import EducationSection from "./components/EducationSection";
 import CertificateSection from "./components/CertificateSection";
+import TechnicalSkillsSection from "./components/TechnicalSkillsSection";
 import WorkExpSection from "./components/WorkExpSection";
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
           <div className="cover">
             <ContactSection />
           </div>
-          <div className="arrow" style={{ top: "95%" }}>
+          <div className="arrow">
             <Arrow
               name="down-arrow1"
               moveFunction={() => {
@@ -34,7 +36,7 @@ function App() {
           </div>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={1} className="layer">
-          <div className="arrow" style={{ top: "5%" }}>
+          <div className="arrow">
             <Arrow
               name="up-arrow1"
               moveFunction={() => {
@@ -45,6 +47,10 @@ function App() {
 
           <div className="content">
             <EducationSection data={fixedData["Education"]} />
+            <TechnicalSkillsSection
+              data={data["Technical Skills"]}
+              categories={jsonData3}
+            />
           </div>
           <div className="arrow" style={{ top: "95%" }}>
             <Arrow
@@ -55,8 +61,8 @@ function App() {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={1} class="layer">
-          <div className="arrow" style={{ top: "5%" }}>
+        <ParallaxLayer offset={2} speed={1} className="layer">
+          <div className="arrow">
             <Arrow
               name="up-arrow2"
               moveFunction={() => {
@@ -67,7 +73,7 @@ function App() {
           <div className="content">
             <WorkExpSection data={data["Work Experience"].slice(0, 2)} />
           </div>
-          <div className="arrow" style={{ top: "95%" }}>
+          <div className="arrow">
             <Arrow
               name="down-arrow3"
               moveFunction={() => {
@@ -76,8 +82,8 @@ function App() {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={1} class="layer">
-          <div className="arrow" style={{ top: "5%" }}>
+        <ParallaxLayer offset={3} speed={1} className="layer">
+          <div className="arrow">
             <Arrow
               name="up-arrow3"
               moveFunction={() => {
@@ -85,7 +91,7 @@ function App() {
               }}
             />
           </div>
-          <div className="cover">
+          <div className="content" style={{ flexDirection: "column" }}>
             <WorkExpSection data={data["Work Experience"].slice(2, 3)} />
             <CertificateSection data={data["Certificates"]} />
           </div>

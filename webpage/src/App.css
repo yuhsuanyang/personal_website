@@ -55,7 +55,11 @@
 }
 
 .content{
-    /* height: 80%*/
+    display: flex;
+    justify-content: center; 
+    gap: 2em;
+    width: 90%;
+    padding: 1em; 
 }
 .read-the-docs {
   color: #888;

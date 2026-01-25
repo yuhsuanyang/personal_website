@@ -33,7 +33,7 @@
     border: 1px solid white;
     border-radius: 8px;
     padding: 0.6em 1.2em;
-    margin: 1em 5%;
+    /* margin: 1em 5%;*/
 
 }
 .subtitle-flex-box{
@@ -41,6 +41,33 @@
     display: flex;
     justify-content: space-between
 }
+
+.capsule{
+    display: flex;
+    border: 1px solid;
+    border-radius: 9999px;
+    min-width: 3em;
+    justify-content: center;
+    padding: 0 1em;
+}
+.capsule-active{
+    background-color: #535bf2;
+}
+
+.capsule-inactive{
+    background-color: transparent;
+}
+.select-control{                
+    border: 0;
+    background-color: transparent;
+    gap: 1em;
+}
+
+.select-option{
+    background-color: #6B6B6B;
+    padding: 1em;
+}
+
 svg {
    vertical-align: bottom;
 }

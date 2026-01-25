@@ -1,0 +1,6 @@
+{
+    "AI engineer, Data Scientist": ["Python", "scikit-learn", "Pytorch", "LangChain"],
+    "Data Engineer": ["Python", "SQL", "Java", "MSSQL", "PostgreSQL", "GCP", "AWS"],
+    "Quantitative Developer": ["Python", "Quantitative methods in risk and analysis"],
+    "Full-stack Engineer": ["C++", "Python", "Golang", "Java", "Svelte", "React", "Django", "Spring Boot"]
+}
