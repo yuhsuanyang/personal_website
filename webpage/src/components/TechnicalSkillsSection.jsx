@@ -16,16 +16,12 @@ function TechnicalSkillsSection({ data, categories }) {
     return initState;
   });
   const activate = (option) => {
-    let list = [];
-    if (option) {
-      list = categories[option.value];
-    }
+    const list = option ? categories[option.value] : [];
     const updatedState = {};
     data.forEach((item) => {
       updatedState[item] = list.includes(item);
     });
     setSkillIsActivated(updatedState);
-    console.log(skillIsActivated);
   };
 
   return (
