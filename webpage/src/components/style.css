@@ -68,6 +68,9 @@
     padding: 1em;
 }
 
+.select-option:hover{
+    background-color: #535bf2;
+}
 svg {
    vertical-align: bottom;
 }

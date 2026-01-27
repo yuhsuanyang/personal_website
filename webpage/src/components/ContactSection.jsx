@@ -100,7 +100,7 @@ function ContactSection() {
         </div>
       </IconContext.Provider>
       <div className="flex-box">
-        <button>Click to Download CV</button>
+        <button aria-label="CV">Click to Download CV</button>
       </div>
     </div>
   );
