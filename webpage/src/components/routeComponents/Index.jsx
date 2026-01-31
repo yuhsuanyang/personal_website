@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { IoArrowDown } from "react-icons/io5";
 import "./style.css";
@@ -13,7 +13,11 @@ function Index({ basicData, expData, skillCategories }) {
   const parallax = useRef(null);
   return (
     <>
-      <Parallax ref={parallax} pages={4} style={{ top: "0", left: "0" }}>
+      <Parallax
+        ref={parallax}
+        pages={4}
+        style={{ top: "0", left: "0", backgroundColor: "#242424" }}
+      >
         <ParallaxLayer offset={0} speed={1} className="layer">
           <div className="cover">
             <ContactSection data={basicData["Contact Information"]} />
