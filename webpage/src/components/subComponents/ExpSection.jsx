@@ -1,23 +1,13 @@
 function ExpSection({ institute, location, position, duration, content = [] }) {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          margin: "0.5em 0",
-        }}
-      >
+      <div className="subtitle-flex-box" style={{ margin: "0.5em 0" }}>
         <p style={{ fontWeight: "bold" }}>{institute}</p>
         <p>{location}</p>
       </div>
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginLeft: "2em",
-          fontStyle: "italic",
-        }}
+        className="subtitle-flex-box"
+        style={{ marginLeft: "1em", fontStyle: "italic" }}
       >
         <p>{position}</p>
         <p>{duration}</p>

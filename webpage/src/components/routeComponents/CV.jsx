@@ -1,5 +1,6 @@
 import GeneralInfo from "../subComponents/GeneralInfo";
 import ExpSection from "../subComponents/ExpSection";
+import ProjectSection from "../subComponents/ProjectSection";
 
 function CV({ basicData, expData }) {
   return (
@@ -60,6 +61,16 @@ function CV({ basicData, expData }) {
       </div>
       <div>
         <div className="title bold">Certificates</div>
+        {Array.from(expData["Certificates"]).map((item) => (
+          <ProjectSection
+            projectName={item["Name"]}
+            duration={item["Period"]}
+            content={item["Content"]}
+          />
+        ))}
+      </div>
+      <div>
+        <div className="title bold">Technical Skills</div>
       </div>
     </div>
   );

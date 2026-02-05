@@ -9,7 +9,7 @@ import { IconContext } from "react-icons";
 import { useState, useEffect, useRef } from "react";
 import "./style.css";
 
-function ContactSection({ data }) {
+function ContactSection({ data, onClickFunction }) {
   const introText = data["introduction"];
   const emailAddress = data["email"];
   const [text, setText] = useState("");
@@ -39,13 +39,6 @@ function ContactSection({ data }) {
       clearTimeout(timeout);
     };
   }, []);
-
-  const downloadCV = async () => {
-    const browser = window.open(CVLink);
-    browser.onload(() => {
-      browser.print();
-    });
-  };
 
   return (
     <div style={style}>
@@ -98,7 +91,7 @@ function ContactSection({ data }) {
         </div>
       </IconContext.Provider>
       <div className="flex-box">
-        <button aria-label="CV" onClick={() => downloadCV()}>
+        <button aria-label="CV" onClick={() => onClickFunction()}>
           Click to Download CV
         </button>
       </div>

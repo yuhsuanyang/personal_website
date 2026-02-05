@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { IoArrowDown } from "react-icons/io5";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import "./style.css";
 import Arrow from "../subComponents/Arrow";
 import ContactSection from "../subComponents/ContactSection";
@@ -11,6 +13,40 @@ import WorkExpSection from "../subComponents/WorkExpSection";
 
 function Index({ basicData, expData, skillCategories }) {
   const parallax = useRef(null);
+  const waitForCV = (iframe) =>
+    new Promise((resolve) => {
+      const check = () => {
+        const doc = iframe.contentDocument;
+        if (doc && doc.getElementsByClassName("cv")) {
+          resolve();
+        } else {
+          requestAnimationFrame(check);
+        }
+      };
+      check();
+    });
+  const downloadCV = async () => {
+    const iframe = document.getElementById("cv");
+    await waitForCV(iframe);
+
+    const content = iframe.contentDocument;
+    // content.body.style.fontSize = "20px";
+    console.log(content.body.style.fontSize);
+    const canvas = await html2canvas(content.body, {
+      useCORS: true,
+    });
+    // console.log(body.style.fontSize);
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("CV.pdf");
+  };
+
   return (
     <>
       <Parallax
@@ -20,7 +56,10 @@ function Index({ basicData, expData, skillCategories }) {
       >
         <ParallaxLayer offset={0} speed={1} className="layer">
           <div className="cover">
-            <ContactSection data={basicData["Contact Information"]} />
+            <ContactSection
+              data={basicData["Contact Information"]}
+              onClickFunction={downloadCV}
+            />
           </div>
           <div className="arrow">
             <Arrow
@@ -44,7 +83,7 @@ function Index({ basicData, expData, skillCategories }) {
           <div className="content">
             <EducationSection data={basicData["Education"]} />
             <TechnicalSkillsSection
-              data={expData["Technical Skills"]}
+              data={Object.values(expData["Technical Skills"]).flat()}
               categories={skillCategories}
             />
           </div>
@@ -93,6 +132,7 @@ function Index({ basicData, expData, skillCategories }) {
           </div>
         </ParallaxLayer>
       </Parallax>
+      <iframe src="/#/CV" id="cv" style={{ width: "210mm", height: "auto" }} />
     </>
   );
 }
