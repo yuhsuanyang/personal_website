@@ -1,8 +1,18 @@
 import GeneralInfo from "../subComponents/GeneralInfo";
 import ExpSection from "../subComponents/ExpSection";
 import ProjectSection from "../subComponents/ProjectSection";
+import SkillSet from "../subComponents/SkillSet";
 
 function CV({ basicData, expData }) {
+  const skillTypes = [
+    "Programming",
+    "Finance",
+    "AI & ML",
+    "Cloud Platform",
+    "Database",
+    "Web Development",
+    "Language",
+  ];
   return (
     <div className="cv">
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -71,6 +81,14 @@ function CV({ basicData, expData }) {
       </div>
       <div>
         <div className="title bold">Technical Skills</div>
+        <div className="grid">
+          {Array.from(skillTypes).map((skill) => (
+            <SkillSet
+              skillType={skill}
+              skills={Array.from(expData["Technical Skills"][skill]).join(", ")}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -28,6 +28,8 @@ function Index({ basicData, expData, skillCategories }) {
   const downloadCV = async () => {
     const iframe = document.getElementById("cv");
     const scale = 0.9;
+    const now = new Date();
+    const fileName = `CV_${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}.pdf`;
     await waitForCV(iframe);
 
     const content = iframe.contentDocument;
@@ -35,7 +37,6 @@ function Index({ basicData, expData, skillCategories }) {
     const canvas = await html2canvas(content.body, {
       useCORS: true,
     });
-    // console.log(body.style.fontSize);
     const imgData = canvas.toDataURL("image/png");
 
     const pdf = new jsPDF("p", "mm", "a4");
@@ -44,7 +45,7 @@ function Index({ basicData, expData, skillCategories }) {
     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
     pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("CV.pdf");
+    pdf.save(fileName);
   };
 
   return (
@@ -55,6 +56,7 @@ function Index({ basicData, expData, skillCategories }) {
         style={{ top: "0", left: "0", backgroundColor: "#242424" }}
       >
         <ParallaxLayer offset={0} speed={1} className="layer">
+          <div style={{ height: "5%" }}></div>
           <div className="cover">
             <ContactSection
               data={basicData["Contact Information"]}
@@ -140,7 +142,7 @@ function Index({ basicData, expData, skillCategories }) {
           </div>
         </ParallaxLayer>
       </Parallax>
-      <iframe src="/#/CV" id="cv" style={{ width: "210mm", height: "auto" }} />
+      <iframe src="/#/CV" id="cv" />
     </>
   );
 }

@@ -47,6 +47,11 @@
 .dark-blue{
     color: rgb(3, 105, 161);
 }
+.grid{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin-bottom: 1%;
+}
 .sky-blue{
     color: rgb(14, 165, 233);
 }
@@ -63,4 +68,10 @@
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
     padding: 0.25rem 0;
+}
+#cv{
+    width: 210mm;
+    height: auto;
+    position: fixed;
+    left: -9999px;
 }
