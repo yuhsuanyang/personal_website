@@ -6,7 +6,7 @@ function Arrow({ name, moveFunction }) {
     } else if (name.startsWith("down")) {
       return <IoArrowDown />;
     } else {
-      return null;
+      return <span>{name}</span>;
     }
   };
   return (

@@ -27,11 +27,11 @@ function Index({ basicData, expData, skillCategories }) {
     });
   const downloadCV = async () => {
     const iframe = document.getElementById("cv");
+    const scale = 0.9;
     await waitForCV(iframe);
 
     const content = iframe.contentDocument;
-    // content.body.style.fontSize = "20px";
-    console.log(content.body.style.fontSize);
+    content.body.style.fontSize = `${16 * scale}px`;
     const canvas = await html2canvas(content.body, {
       useCORS: true,
     });
@@ -129,6 +129,14 @@ function Index({ basicData, expData, skillCategories }) {
           <div className="content" style={{ flexDirection: "column" }}>
             <WorkExpSection data={expData["Work Experience"].slice(2, 3)} />
             <CertificateSection data={expData["Certificates"]} />
+          </div>
+          <div className="arrow">
+            <Arrow
+              name="Back to Top"
+              moveFunction={() => {
+                parallax.current.scrollTo(0);
+              }}
+            />
           </div>
         </ParallaxLayer>
       </Parallax>
