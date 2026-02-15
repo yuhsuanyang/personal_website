@@ -1,81 +1,79 @@
-import { expect, describe, beforeEach, afterEach, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { expect, describe, beforeEach, it, vi } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import fs from "fs";
-// import puppeteer from "puppeteer";
 import path from "path";
 
 import App from "../App";
 
-// let page;
-// let browser;
-
 const DOWNLOAD_DIR = path.resolve("src", "__tests__", "downloads");
 const TODAY = new Date();
-// const EXPECTED_FILENAME = `CV_${TODAY.getFullYear()}${(TODAY.getMonth() + 1).toString().padStart(2, "0")}.pdf`;
-const EXPECTED_FILENAME = `CV_202511.pdf`;
+const EXPECTED_FILENAME = `CV_${TODAY.getFullYear()}${(TODAY.getMonth() + 1).toString().padStart(2, "0")}.pdf`;
 
-describe("Download CV test", () => {
-  beforeEach(async () => {
-    //    if (fs.existsSync(DOWNLOAD_DIR)) {
-    //      fs.rmSync(DOWNLOAD_DIR, { recursive: true, force: true });
-    //    }
-    fs.mkdirSync(DOWNLOAD_DIR, { recursive: true });
-    render(<App />);
-    //    browser = await puppeteer.launch({
-    //      headless: "new",
-    //      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    //    });
-    //    page = await browser.newPage();
-    //    const client = await page.target().createCDPSession();
-    //
-    //    await client.send("Page.setDownloadBehavior", {
-    //      behavior: "allow",
-    //      downloadPath: DOWNLOAD_DIR,
-    //    });
+vi.mock("html2canvas", () => ({
+  default: vi.fn(() =>
+    Promise.resolve({
+      toDataURL: () => "fake",
+    }),
+  ),
+}));
+
+const saveMock = vi.fn();
+
+vi.mock("jspdf", () => {
+  return {
+    default: vi.fn().mockImplementation(() => ({
+      addImage: vi.fn(),
+      save: saveMock,
+      internal: {
+        pageSize: {
+          getWidth: () => 210,
+        },
+      },
+    })),
+  };
+});
+
+function createMockIframe() {
+  const iframe = document.createElement("iframe");
+  iframe.id = "cv";
+
+  const fakeDoc = document.implementation.createHTMLDocument("fake");
+
+  // 建立一個 .cv 元素，放進 body
+  const cvDiv = document.createElement("div");
+  cvDiv.className = "cv";
+  fakeDoc.body.appendChild(cvDiv);
+
+  // 設定 body font size
+  fakeDoc.body.style.fontSize = "16px";
+
+  // 將 iframe.contentDocument 指向 fakeDoc
+  Object.defineProperty(iframe, "contentDocument", {
+    value: fakeDoc,
+    writable: true,
   });
 
-  //  afterEach(async () => {
-  //    await browser.close();
-  //  });
+  document.body.appendChild(iframe);
+}
+
+describe("Download CV test", () => {
+  beforeEach(() => {
+    document.body.innerHTML = "";
+    saveMock.mockClear();
+    createMockIframe();
+
+    render(<App />);
+  });
+
   it("Go to CV page and Download", { timeout: 10000 }, async () => {
     const button = screen.getByRole("button", { name: "CV" });
     await userEvent.click(button);
-    // await page.goto("https://yuhsuanyang.github.io/CV/");
+    await waitFor(() => {
+      expect(saveMock).toHaveBeenCalled();
+    });
 
-    // const files = fs.readdirSync(DOWNLOAD_DIR);
-    // console.log(files);
-    const result = await waitForDownload();
-    // expect(result).toMatch(/\.pdf$/);
-    expect(result).toEqual(EXPECTED_FILENAME);
-    expect(fs.statSync(path.join(DOWNLOAD_DIR, result)).size).toBeGreaterThan(
-      0,
-    );
+    expect(saveMock).toHaveBeenCalledWith(EXPECTED_FILENAME);
   });
 });
 
-function waitForDownload() {
-  return new Promise((resolve, reject) => {
-    const start = Date.now();
-    var count = 0;
-    setInterval(() => {
-      const files = fs.readdirSync(DOWNLOAD_DIR);
-      count++;
-      console.log(`Check for ${count} times`);
-      const pdfFile = files.find((f) => {
-        //        return f.endsWith(".pdf");
-        return f == EXPECTED_FILENAME;
-      });
-      if (pdfFile) {
-        resolve(pdfFile);
-        clearInterval();
-      }
-      if (Date.now() - start > 5000) {
-        reject(
-          `Download Timeout. Cannot find ${EXPECTED_FILENAME} in test folder`,
-        );
-        clearInterval();
-      }
-    }, 1000);
-  });
-}
