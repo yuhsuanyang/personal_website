@@ -1,4 +1,13 @@
 {
+    "Contact Information":{
+	"mobile": "0953330882",
+	"email": "sb0953330882@gmail.com",
+	"github": "https://github.com/yuhsuanyang",
+        "linkedin": "https://www.linkedin.com/in/darcy-yu-hsuan-yang/",
+	"introduction": "Professional in data science and finance, dedicated to boost the financial industry with technology.",
+	"description": "Software Engineer in a Financial Institute",
+	"location": "Taipei, Taiwan"
+    },
     "Education": [
         {
             "School": "Nanyang Technological University",
@@ -15,7 +24,7 @@
         {
             "School": "National Cheng Kung University",
             "Location": "Tainan, Taiwan",
-            "Department": "International Bachelor Degree Program on Energy with Mathematics as Minor",
+            "Department": "International Bachelor Degree Program on Energy (with Mathematics as Minor)",
             "Period": "Sept. 2014 - June 2018"
         }
     ]

@@ -54,22 +54,9 @@
     /* height: 90%;*/
 }
 
-.content{
-    display: flex;
-    justify-content: center; 
-    gap: 2em;
-    width: 90%;
-    padding: 1em; 
-}
+
 .read-the-docs {
   color: #888;
-}
-
-.layer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 

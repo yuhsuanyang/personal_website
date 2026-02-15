@@ -9,14 +9,15 @@ import { IconContext } from "react-icons";
 import { useState, useEffect, useRef } from "react";
 import "./style.css";
 
-function ContactSection() {
-  const introText =
-    "Professional in data science and finance, dedicated to boost the financial industry with technology.";
-  const emailAddress = "sb0953330882@gmail.com";
+function ContactSection({ data, onClickFunction }) {
+  const introText = data["introduction"];
+  const emailAddress = data["email"];
   const [text, setText] = useState("");
   const [showEmailAddress, setShowEmailAddress] = useState(false);
   const hasRun = useRef(false);
   const w = `${introText.length}ch`;
+  const CVLink = "https://yuhsuanyang.github.io/CV/";
+
   const style = {
     padding: "15%",
     height: "100%",
@@ -42,30 +43,20 @@ function ContactSection() {
   return (
     <div style={style}>
       <h1>Yu-Hsuan (Darcy) Yang</h1>
-      <h2 className="read-the-docs">
-        Software Engineer in a Financial Institute
-      </h2>
+      <h2 className="read-the-docs">{data["description"]}</h2>
       <p>{text}</p>
 
       <div className="flex-box">
         <IoLocationOutline />
-        <p>Taipei, Taiwan</p>
+        <p>{data["location"]}</p>
       </div>
 
       <IconContext.Provider value={{ size: "1.75em" }}>
         <div className="flex-box">
-          <a
-            aria-label="Linkedin"
-            href="https://www.linkedin.com/in/darcy-yu-hsuan-yang/"
-            target="_blank"
-          >
+          <a aria-label="Linkedin" href={data["linkedin"]} target="_blank">
             <IoLogoLinkedin />
           </a>
-          <a
-            aria-label="Github"
-            href="https://github.com/yuhsuanyang"
-            target="_blank"
-          >
+          <a aria-label="Github" href={data["github"]} target="_blank">
             <IoLogoGithub />
           </a>
           <button
@@ -100,7 +91,9 @@ function ContactSection() {
         </div>
       </IconContext.Provider>
       <div className="flex-box">
-        <button aria-label="CV">Click to Download CV</button>
+        <button aria-label="CV" onClick={() => onClickFunction()}>
+          Click to Download CV
+        </button>
       </div>
     </div>
   );

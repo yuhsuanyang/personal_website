@@ -36,27 +36,15 @@
             ]
         }
     ],
-    "Technical Skills": [
-        "C++",
-        "Python",
-        "SQL",
-        "Golang",
-        "Java",
-        "Quantitative methods in risk and analysis",
-        "scikit-learn",
-        "Pytorch",
-        "LangChain",
-        "GCP",
-        "AWS",
-        "MSSQL",
-        "PostgreSQL",
-        "Svelte",
-        "React",
-        "Django",
-        "Spring Boot",
-        "Mandarin(native)",
-        "English(IELTS 7)"
-    ],
+    "Technical Skills": { 
+        "Programming": ["C++", "Python", "SQL", "Golang", "Java"],
+	"Finance":["Quantitative methods in risk and analysis"],
+        "AI & ML": ["scikit-learn", "Pytorch", "LangChain"],
+        "Cloud Platform": ["GCP", "AWS"],
+	"Database":["MSSQL","PostgreSQL"],
+	"Web Development":["Svelte", "React", "Django", "Spring Boot"],
+	"Language":["Mandarin(native)", "English(IELTS 7)"]
+    },
     "Certificates": [
         {
             "Name": "Bloomberg for Education",
