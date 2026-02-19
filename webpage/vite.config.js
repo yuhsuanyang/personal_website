@@ -10,6 +10,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: "/personal_website/",
   test: {
     environment: "jsdom",
     globals: true,
