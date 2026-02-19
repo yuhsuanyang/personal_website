@@ -1,0 +1,49 @@
+name: Deploy on Github Pages
+
+on:
+  push:
+    branches: ["main"]
+  merge:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:  # if push twice the old deployment will be cancelled
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # run on an ubuntu VM
+    defaults:
+      run:
+        working-directory: ./webpage
+    steps:
+      - name: Checkout  # pull code to VM
+        uses: actions/checkout@v4
+      - name: Setup Node  # install node js on VM
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 24
+          cache: npm
+          cache-dependency-path: webpage/package-lock.json
+      - name: Install packages  # install packages in package-lock.json
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./webpage/dist 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
