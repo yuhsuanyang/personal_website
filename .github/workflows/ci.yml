@@ -3,7 +3,8 @@ name: Deploy on Github Pages
 on:
   push:
     branches: ["main"]
-  merge:
+  pull_request:
+    types: ["closed"]
     branches: ["main"]
 
 permissions:
