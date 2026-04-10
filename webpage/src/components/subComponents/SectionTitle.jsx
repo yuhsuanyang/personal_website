@@ -10,7 +10,7 @@ function SectionTitle({ name }) {
         return <IoBriefcase />;
       case "Technical Skills":
         return <IoBuild />;
-      case "Certificates":
+      case "Certificates and Side Projects":
         return <IoRibbon />;
       default:
         throw new Error("Not Implemented");

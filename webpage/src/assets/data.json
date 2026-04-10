@@ -45,10 +45,15 @@
 	"Web Development":["Svelte", "React", "Django", "Spring Boot"],
 	"Language":["Mandarin(native)", "English(IELTS 7)"]
     },
-    "Certificates": [
+    "Certificates and Side Projects": [
+	{
+	    "Name": "AirQuant Alpha Team Member",
+	    "Period": "Feb. 2026 - now",
+	    "Content": ["Support quantitive researchers to development and backtest strategies on options and market making."]
+	},
         {
             "Name": "Bloomberg for Education",
-            "Period": "Oct. 2024~April 2025",
+            "Period": "Oct. 2024 - April 2025",
             "Content": [
                 "Bloomberg Financial Fundamental: Gain knowledge of financial markets, risk and reward and portfolio management.",
                 "Bloomberg Market Concepts: Delve into concepts of financial instruments such as commodities, fixed income, equities and options."

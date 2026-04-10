@@ -27,7 +27,7 @@ function Index({ basicData, expData, skillCategories }) {
     });
   const downloadCV = async () => {
     const iframe = document.getElementById("cv");
-    const scale = 0.9;
+    const scale = 0.85;
     const now = new Date();
     const fileName = `CV_${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, "0")}.pdf`;
     await waitForCV(iframe);
@@ -130,7 +130,9 @@ function Index({ basicData, expData, skillCategories }) {
           </div>
           <div className="content" style={{ flexDirection: "column" }}>
             <WorkExpSection data={expData["Work Experience"].slice(2, 3)} />
-            <CertificateSection data={expData["Certificates"]} />
+            <CertificateSection
+              data={expData["Certificates and Side Projects"]}
+            />
           </div>
           <div className="arrow">
             <Arrow

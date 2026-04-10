@@ -71,7 +71,7 @@ function CV({ basicData, expData }) {
       </div>
       <div>
         <div className="title bold">Certificates</div>
-        {Array.from(expData["Certificates"]).map((item) => (
+        {Array.from(expData["Certificates and Side Projects"]).map((item) => (
           <ProjectSection
             projectName={item["Name"]}
             duration={item["Period"]}

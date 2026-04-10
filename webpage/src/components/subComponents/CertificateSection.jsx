@@ -1,6 +1,7 @@
 import SectionTitle from "./SectionTitle";
 
 function CertificateSection({ data }) {
+  console.log(data);
   const getContent = (content) => {
     return Array.from(content).map((ele) => {
       return <li>{ele}</li>;
@@ -8,7 +9,7 @@ function CertificateSection({ data }) {
   };
   return (
     <div className="section">
-      <SectionTitle name="Certificates" />
+      <SectionTitle name="Certificates and Side Projects" />
       {Array.from(data).map((item) => (
         <div className="subtitle">
           <div className="subtitle-flex-box">
